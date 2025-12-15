@@ -1,9 +1,35 @@
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-G8P710B1EM"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>QR Redirect</title>
 
-  gtag('config', 'G-G8P710B1EM');
-</script>
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G8P710B1EM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-G8P710B1EM');
+  </script>
+</head>
+
+<body>
+  <h2>Đang chuyển hướng...</h2>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const user = params.get("user") || "unknown";
+
+    // Gửi event để chắc chắn có dữ liệu
+    gtag('event', 'qr_scan', {
+      user_name: user
+    });
+
+    // CHỜ 2 GIÂY RỒI MỚI CHUYỂN
+    setTimeout(() => {
+      window.location.href = "https://maps.app.goo.gl/hA2kVTjJnmKR8jfe6";
+    }, 2000);
+  </script>
+</body>
+</html>
