@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>QR Redirect</title>
 
   <!-- GA4 -->
@@ -10,23 +10,25 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-G8P710B1EM');
+    gtag('config', 'G-G8P710B1EM', { debug_mode: true });
   </script>
 </head>
 
 <body>
-  <h2>Đang chuyển hướng...</h2>
+  <h3>Đang chuyển hướng...</h3>
 
   <script>
     const params = new URLSearchParams(window.location.search);
     const user = params.get("user") || "unknown";
 
-    // Gửi event để chắc chắn có dữ liệu
+    // 🔥 GỬI EVENT RÕ RÀNG
     gtag('event', 'qr_scan', {
+      event_category: 'QR',
+      event_label: 'employee_scan',
       user_name: user
     });
 
-    // CHỜ 2 GIÂY RỒI MỚI CHUYỂN
+    // ⏱️ ĐỢI 2 GIÂY RỒI CHUYỂN
     setTimeout(() => {
       window.location.href = "https://maps.app.goo.gl/hA2kVTjJnmKR8jfe6";
     }, 2000);
